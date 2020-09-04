@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import TeacherModel
+from .models import Album, TeacherModel,Track
 
-admin.site.register(TeacherModel)
+admin.register(TeacherModel,Album,Track)(admin.ModelAdmin)

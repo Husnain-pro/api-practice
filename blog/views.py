@@ -1,7 +1,8 @@
 from rest_framework import generics, mixins
+from itertools import chain
 
-from .models import TeacherModel
-from .serializers import TeacherSerializer
+from .models import TeacherModel,Album,Track
+from .serializers import TeacherSerializer,AlbumSerializer,TrackSerializer
 
 
 class TeacherListView(generics.ListCreateAPIView):
@@ -16,3 +17,13 @@ class TeacherDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TeacherSerializer
 
 
+
+class AlbumView(generics.ListCreateAPIView):
+    queryset = Album.objects.all()
+    serializer_class = AlbumSerializer
+
+  
+class AlbumViewDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Album.objects.all()
+    serializer_class = AlbumSerializer
+  
